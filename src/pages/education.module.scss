@@ -1,0 +1,88 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.page {
+  flex: 1;
+  background-color: $color-bg;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  @include respond-to(sm) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.container {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  @include container-padding;
+
+  > * + * {
+    margin-top: 6rem;
+  }
+}
+
+.sectionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sectionText {
+  @include body-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+
+  @include respond-to(lg) {
+    order: 1;
+  }
+}
+
+.sectionTextRight {
+  @include body-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.sectionTitleAccent {
+  @include section-heading;
+  color: $color-accent;
+}
+
+.sectionTitlePrimary {
+  @include section-heading;
+  color: $color-primary;
+}
+
+.imageWrapper {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  @include respond-to(lg) {
+    order: 2;
+  }
+}
+
+.imageWrapperLeft {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.sectionImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
