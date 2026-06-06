@@ -45,7 +45,7 @@
   max-width: 56rem;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5rem;
+  margin-top: 3rem;
 }
 
 .heroTitle {
@@ -56,7 +56,7 @@
   letter-spacing: -0.025em;
 
   @include respond-to(md) {
-    font-size: 3.75rem;
+    font-size: 3.25rem;
   }
 }
 
