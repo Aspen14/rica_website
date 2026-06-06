@@ -121,7 +121,7 @@ const Header = () => {
               <div className="hidden sm:block">
                 <span className="font-bold text-xl tracking-tight">Rica</span>
                 <span className="text-gray-300 mx-2">|</span>
-                <span className="font-light text-gray-200">Recycling & Waste</span>
+                <span className="font-light text-gray-200">Lumber and Deconstruction</span>
               </div>
             </Link>
           </div>
