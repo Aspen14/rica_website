@@ -74,7 +74,9 @@ export default function About() {
                 </motion.h2>
                 <motion.p variants={fadeInUp}>
                   Rica Lumber & Deconstruction grew from the vision that here in Northern Colorado, we could intentionally re-harvest value from existing buildings to construct a more equitable and beautiful future. We know that using reclaimed building materials makes buildings not just sustainable but also affordable.
-
+                </motion.p>
+                <br />
+                <motion.p variants={fadeInUp}>
                   At Rica, we’re a women- and queer-owned worker cooperative that puts environmental responsibility and social impact first. This cooperative approach means that our success isn’t just celebrated by owners - it’s shared by every team member who contributes to our mission.
                 </motion.p>
             </motion.section>

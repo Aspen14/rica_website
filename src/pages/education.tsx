@@ -25,7 +25,7 @@ export default function Education() {
           </div>
           <motion.div variants={fadeInUp} className="order-1 lg:order-2 rounded-lg overflow-hidden shadow-xl">
             <img 
-              src="/src/assets/images/education-1.png" 
+              src="/src/assets/images/lumber_co.jpg" 
               alt="Reclaimed wood planks in a workshop" 
               className="w-full h-[400px] object-cover"
               onError={(e) => {
