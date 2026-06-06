@@ -65,6 +65,55 @@
   color: $color-primary;
 }
 
+.sectionSubheading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: $color-primary;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+
+  @include respond-to(md) {
+    font-size: 1.5rem;
+  }
+}
+
+.deconstructionSection {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.deconstructionIntro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+
+  @include respond-to(lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sectionIntroText {
+  @include body-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.sectionTextFull {
+  @include body-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+
+  > .sectionSubheading:first-child {
+    margin-top: 0;
+  }
+}
+
 .imageWrapper {
   border-radius: 0.5rem;
   overflow: hidden;
