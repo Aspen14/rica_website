@@ -1,6 +1,13 @@
 @use "../styles/variables" as *;
 @use "../styles/mixins" as *;
 
+// Spacing rhythm: main-section gap > block gap > content gap
+$education-content-gap: 1.25rem;
+$education-block-gap: 2rem;
+$education-block-gap-md: 2.5rem;
+$education-main-section-gap: 4rem;
+$education-main-section-gap-md: 6.5rem;
+
 .page {
   flex: 1;
   background-color: $color-bg;
@@ -20,13 +27,18 @@
   @include container-padding;
 
   > * + * {
-    margin-top: 6rem;
+    margin-top: $education-main-section-gap;
+
+    @include respond-to(md) {
+      margin-top: $education-main-section-gap-md;
+    }
   }
 }
 
 .sectionTitleAccent {
   @include section-heading;
   color: $color-accent;
+  margin-bottom: 0;
 }
 
 .sectionTitlePrimary {
@@ -38,8 +50,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: $color-primary;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin: 0;
 
   @include respond-to(md) {
     font-size: 1.5rem;
@@ -50,12 +61,21 @@
 .cooperativeSection {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: $education-block-gap;
   scroll-margin-top: 11rem;
+
+  @include respond-to(md) {
+    gap: $education-block-gap-md;
+  }
 }
 
 .cooperativeTitleBox {
-      margin-top: 6.5rem;
+  margin-top: 8rem;
+
+  @include respond-to(md) {
+    margin-top: 8rem;
+  }
+
   padding: 1.25rem 1.5rem;
   background-color: $color-text;
   color: $color-white;
@@ -72,27 +92,26 @@
   @include respond-to(md) {
     font-size: 1.2rem;
     padding: 1.5rem 2rem;
-        margin-top: 7rem;
   }
 }
 
 .introSection {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: $education-content-gap;
   @include body-text;
-
-  > * + * {
-    margin-top: 1.5rem;
-  }
 }
 
 .differsGrid,
 .cooperativeIntroGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: $education-block-gap;
   align-items: center;
+
+  @include respond-to(md) {
+    gap: $education-block-gap-md;
+  }
 
   @include respond-to(lg) {
     grid-template-columns: repeat(2, 1fr);
@@ -100,15 +119,10 @@
 }
 
 .cooperativeIntroText {
+  display: flex;
+  flex-direction: column;
+  gap: $education-content-gap;
   @include body-text;
-
-  > * + * {
-    margin-top: 1.5rem;
-  }
-
-  > .sectionTitleAccent:first-child {
-    margin-top: 0;
-  }
 }
 
 .cooperativeIntroImages {
@@ -133,15 +147,10 @@
 }
 
 .differsText {
+  display: flex;
+  flex-direction: column;
+  gap: $education-content-gap;
   @include body-text;
-
-  > * + * {
-    margin-top: 1.5rem;
-  }
-
-  > .sectionSubheading:first-child {
-    margin-top: 0;
-  }
 }
 
 .differsImageWrapper {
@@ -156,16 +165,67 @@
   }
 }
 
-.sectionTextFull {
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  gap: $education-content-gap;
   @include body-text;
+}
 
-  > * + * {
-    margin-top: 1.5rem;
-  }
+.standaloneText {
+  @include body-text;
+  margin: 0;
+}
 
-  > .sectionSubheading:first-child {
-    margin-top: 0;
+.introSection,
+.differsText,
+.cooperativeIntroText,
+.textBlock {
+  p {
+    margin: 0;
   }
+}
+
+.whyChooseList {
+  display: flex;
+  flex-direction: column;
+  gap: $education-content-gap;
+}
+
+.whyChooseItem {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.whyChooseIcon {
+  flex-shrink: 0;
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.whyChooseIconPrimary {
+  background-color: $color-primary;
+}
+
+.whyChooseIconAccent {
+  background-color: $color-accent;
+}
+
+.whyChooseIconSvg {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: $color-white;
+}
+
+.whyChooseText {
+  margin: 0;
+  flex: 1;
 }
 
 .sectionImage {
@@ -181,7 +241,11 @@
 // Shared infographic headers
 .infographicHeader {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: $education-block-gap;
+
+  @include respond-to(md) {
+    margin-bottom: $education-block-gap-md;
+  }
 }
 
 .infographicEyebrow {

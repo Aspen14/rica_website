@@ -12,6 +12,9 @@ import {
   TrendingUp,
   Users,
   Sprout,
+  PiggyBank,
+  Landmark,
+  HeartHandshake,
 } from "lucide-react";
 import { fadeInUp, staggerContainer } from "./about";
 import lumberCoImg from "../assets/images/lumber_co.jpg";
@@ -22,6 +25,7 @@ import styles from "./education.module.scss";
 type StepColor = "accent" | "primary";
 type PrincipleColor = "accent" | "primary";
 type PillarColor = "accent" | "primary" | "text";
+type DeconstructionBenefitColor = "accent" | "primary";
 
 const timelineSteps = [
   {
@@ -81,6 +85,37 @@ function benefitBulletClass(color: PillarColor) {
   if (color === "primary") return styles.benefitBulletPrimary;
   return styles.benefitBulletText;
 }
+
+function whyChooseIconClass(color: DeconstructionBenefitColor) {
+  return color === "accent" ? styles.whyChooseIconAccent : styles.whyChooseIconPrimary;
+}
+
+const deconstructionBenefits = [
+  {
+    icon: Leaf,
+    title: "Environmental Impact",
+    body: "Deconstruction diverts 80-90% of building materials from landfills, reducing waste and carbon emissions associated with new material production.",
+    color: "primary" as DeconstructionBenefitColor,
+  },
+  {
+    icon: PiggyBank,
+    title: "Economic Benefits",
+    body: "Salvaged materials are often more affordable than new ones, making sustainable building more accessible. We also create dignified, shared-ownership jobs in the process.",
+    color: "primary" as DeconstructionBenefitColor,
+  },
+  {
+    icon: Landmark,
+    title: "Historical Preservation",
+    body: "Many older buildings contain irreplaceable materials - old-growth lumber, unique hardware, and architectural details that simply can't be replicated today.",
+    color: "accent" as DeconstructionBenefitColor,
+  },
+  {
+    icon: HeartHandshake,
+    title: "Community Building",
+    body: "By reusing local materials, we strengthen community connections and reduce the cost and environmental impact of transporting new materials from distant sources.",
+    color: "accent" as DeconstructionBenefitColor,
+  },
+];
 
 const principles = [
   {
@@ -360,35 +395,42 @@ export default function Education() {
             </motion.div>
           </motion.section>
 
-          <div className={styles.sectionTextFull}>
-            <TimelineInfographic />
+          <TimelineInfographic />
 
-            <motion.h3 variants={fadeInUp} className={styles.sectionSubheading}>
-              Why Choose Deconstruction?
-            </motion.h3>
-            <motion.p variants={fadeInUp}>
-              <strong>Environmental Impact:</strong> Deconstruction diverts 80-90% of building materials from landfills, reducing waste and carbon emissions associated with new material production.
-            </motion.p>
-            <motion.p variants={fadeInUp}>
-              <strong>Economic Benefits:</strong> Salvaged materials are often more affordable than new ones, making sustainable building more accessible. We also create dignified, shared-ownership jobs in the process.
-            </motion.p>
-            <motion.p variants={fadeInUp}>
-              <strong>Historical Preservation:</strong> Many older buildings contain irreplaceable materials - old-growth lumber, unique hardware, and architectural details that simply can't be replicated today.
-            </motion.p>
-            <motion.p variants={fadeInUp}>
-              <strong>Community Building:</strong> By reusing local materials, we strengthen community connections and reduce the cost and environmental impact of transporting new materials from distant sources.
-            </motion.p>
-
-            <motion.h3 variants={fadeInUp} className={styles.sectionSubheading}>
-              The Circular Construction Economy
-            </motion.h3>
-            <motion.p variants={fadeInUp}>
-              Deconstruction is a cornerstone of the circular construction economy - where materials move locally, workers share ownership, and communities build more equitable and beautiful places using what already exists. Instead of the "take-make-waste" linear model, we create a system where materials are valued, preserved, and reused for generations.
-            </motion.p>
-            <motion.p variants={fadeInUp}>
-              At Rica Lumber and Deconstruction, we're not just taking buildings apart. We're revealing the value already embedded in our built environment and showing that sustainable construction can be both beautiful and practical.
-            </motion.p>
+          <motion.h3 variants={fadeInUp} className={styles.sectionSubheading}>
+            Why Choose Deconstruction?
+          </motion.h3>
+          <div className={styles.whyChooseList}>
+            {deconstructionBenefits.map((benefit) => {
+              const Icon = benefit.icon;
+              return (
+                <motion.div
+                  key={benefit.title}
+                  variants={fadeInUp}
+                  className={styles.whyChooseItem}
+                >
+                  <div className={`${styles.whyChooseIcon} ${whyChooseIconClass(benefit.color)}`}>
+                    <Icon className={styles.whyChooseIconSvg} strokeWidth={1.5} />
+                  </div>
+                  <p className={styles.whyChooseText}>
+                    <strong>{benefit.title}:</strong> {benefit.body}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
+
+          <motion.h3 variants={fadeInUp} className={styles.sectionSubheading}>
+            The Circular Construction Economy
+          </motion.h3>
+          <motion.div variants={fadeInUp} className={styles.textBlock}>
+            <p>
+              Deconstruction is a cornerstone of the circular construction economy - where materials move locally, workers share ownership, and communities build more equitable and beautiful places using what already exists. Instead of the "take-make-waste" linear model, we create a system where materials are valued, preserved, and reused for generations.
+            </p>
+            <p>
+              At Rica Lumber and Deconstruction, we're not just taking buildings apart. We're revealing the value already embedded in our built environment and showing that sustainable construction can be both beautiful and practical.
+            </p>
+          </motion.div>
         </motion.section>
 
         <motion.section
@@ -445,21 +487,11 @@ export default function Education() {
 
           <CorePrinciples />
 
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className={styles.introSection}
-          >
-            <motion.p variants={fadeInUp}>
-              Worker-owned cooperatives represent more than just a different way to organize a business—they offer a vision for a more democratic, equitable, and sustainable economy built on the principle that those who do the work should share in the rewards.
-            </motion.p>
-          </motion.section>
+          <motion.p variants={fadeInUp} className={styles.standaloneText}>
+            Worker-owned cooperatives represent more than just a different way to organize a business—they offer a vision for a more democratic, equitable, and sustainable economy built on the principle that those who do the work should share in the rewards.
+          </motion.p>
 
-          <div className={styles.sectionTextFull}>
-            <BenefitsPillars />
-          </div>
+          <BenefitsPillars />
         </motion.section>
       </div>
     </div>
