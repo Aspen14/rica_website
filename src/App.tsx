@@ -8,6 +8,7 @@ import About from "@/pages/about";
 import Education from "@/pages/education";
 import Contact from "@/pages/contact";
 import { useEffect } from "react";
+import { scrollToCurrentHash } from "@/lib/scroll";
 
 const queryClient = new QueryClient();
 
@@ -15,8 +16,20 @@ function ScrollToTop() {
   const [location] = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToCurrentHash();
   }, [location]);
+
+  useEffect(() => {
+    const handleHashNavigation = () => scrollToCurrentHash();
+
+    window.addEventListener("hashchange", handleHashNavigation);
+    window.addEventListener("pushState", handleHashNavigation);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashNavigation);
+      window.removeEventListener("pushState", handleHashNavigation);
+    };
+  }, []);
 
   return null;
 }

@@ -304,6 +304,7 @@ export default function Education() {
     <div className={styles.page}>
       <div className={styles.container}>
         <motion.section
+          id="deconstruction"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
@@ -389,6 +390,7 @@ export default function Education() {
         </motion.section>
 
         <motion.section
+          id="worker-owned-co-op"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}

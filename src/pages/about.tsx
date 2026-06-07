@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Leaf, Users, Hammer, Scale, Eye, TrafficCone } from "lucide-react";
 import styles from "./about.module.scss";
-import aboutHero from "../assets/images/about-hero.png";
-import foundersImg from "../assets/images/founders.jpg";
+import lumber from "../assets/images/lumber.jpg";
+import foundersImg from "../assets/images/founders.jpeg";
 
 export const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -30,7 +30,7 @@ export default function About() {
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
           <img
-            src={aboutHero}
+            src={lumber}
             alt="Rica founders with reclaimed lumber"
             className={styles.heroImage}
             onError={(e) => {

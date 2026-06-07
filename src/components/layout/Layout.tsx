@@ -1,10 +1,17 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, TreePine } from "lucide-react";
+import { Menu, X, TreePine, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { cn } from "@/lib/utils";
+import { scrollToHash } from "@/lib/scroll";
 import styles from "./Layout.module.scss";
+
+type NavLink = {
+  name: string;
+  href: string;
+  children?: { name: string; href: string }[];
+};
 
 type ModalKey = "privacy" | "terms" | "disclaimer" | null;
 
@@ -100,12 +107,51 @@ const LegalModal = ({ modalKey, onClose }: { modalKey: NonNullable<ModalKey>; on
 const Header = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [location] = useLocation();
+  const [currentHash, setCurrentHash] = React.useState(() => window.location.hash);
 
-  const links = [
+  React.useEffect(() => {
+    const syncHash = () => setCurrentHash(window.location.hash);
+
+    window.addEventListener("hashchange", syncHash);
+    window.addEventListener("pushState", syncHash);
+
+    return () => {
+      window.removeEventListener("hashchange", syncHash);
+      window.removeEventListener("pushState", syncHash);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    setCurrentHash(window.location.hash);
+  }, [location]);
+
+  const links: NavLink[] = [
     { name: "About", href: "/about" },
-    { name: "Education", href: "/education" },
+    {
+      name: "Education",
+      href: "/education",
+      children: [
+        { name: "Deconstruction", href: "/education#deconstruction" },
+        { name: "Worker-Owned Co-op", href: "/education#worker-owned-co-op" },
+      ],
+    },
     { name: "Contact", href: "/contact" },
   ];
+
+  const handleSubmenuClick = (href: string) => {
+    setIsOpen(false);
+    const hash = href.includes("#") ? href.slice(href.indexOf("#")) : "";
+    if (hash) {
+      requestAnimationFrame(() => scrollToHash(hash));
+    }
+  };
+
+  const isLinkActive = (href: string) => {
+    const [path, hash = ""] = href.split("#");
+    if (location !== path) return false;
+    if (hash) return currentHash === `#${hash}`;
+    return !currentHash;
+  };
 
   return (
     <header className={styles.header}>
@@ -118,23 +164,53 @@ const Header = () => {
                 <img src="/src/assets/images/icon-cropped.svg" alt="Rica Logo" className={styles.logoIcon} />
               </div>
               <div className={styles.logoText}>
-                <span className={styles.logoName}>Rica</span>
+                <span className={styles.logoName}>RICA</span>
                 <span className={styles.logoDivider}>|</span>
-                <span className={styles.logoTagline}>Lumber and Deconstruction</span>
+                <span className={styles.logoTagline}>Lumber & Deconstruction</span>
               </div>
             </Link>
           </div>
 
           <nav className={styles.desktopNav}>
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={cn(styles.navLink, location === link.href && styles.navLinkActive)}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {links.map((link) =>
+              link.children ? (
+                <div key={link.name} className={styles.navItemWithMenu}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      styles.navLink,
+                      location === link.href && styles.navLinkActive
+                    )}
+                  >
+                    {link.name}
+                    <ChevronDown className={styles.navChevron} aria-hidden="true" />
+                  </Link>
+                  <div className={styles.navSubmenu}>
+                    {link.children.map((child) => (
+                      <Link
+                        key={child.name}
+                        href={child.href}
+                        className={cn(
+                          styles.navSubmenuLink,
+                          isLinkActive(child.href) && styles.navSubmenuLinkActive
+                        )}
+                        onClick={() => handleSubmenuClick(child.href)}
+                      >
+                        {child.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={cn(styles.navLink, location === link.href && styles.navLinkActive)}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
           </nav>
 
           <button
@@ -157,14 +233,35 @@ const Header = () => {
           >
             <nav className={styles.mobileNav}>
               {links.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={cn(styles.mobileNavLink, location === link.href && styles.mobileNavLinkActive)}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </Link>
+                <div key={link.name} className={styles.mobileNavGroup}>
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      styles.mobileNavLink,
+                      location === link.href && styles.mobileNavLinkActive
+                    )}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                  {link.children && (
+                    <div className={styles.mobileNavSubmenu}>
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.name}
+                          href={child.href}
+                          className={cn(
+                            styles.mobileNavSubmenuLink,
+                            isLinkActive(child.href) && styles.mobileNavSubmenuLinkActive
+                          )}
+                          onClick={() => handleSubmenuClick(child.href)}
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </nav>
           </motion.div>
