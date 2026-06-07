@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, TreePine, ChevronDown } from "lucide-react";
+import { Menu, X, TreePine, ChevronDown, Leaf } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiFacebook, SiInstagram } from "react-icons/si";
 import { cn } from "@/lib/utils";
@@ -160,8 +160,7 @@ const Header = () => {
           <div>
             <Link href="/" className={styles.logoLink}>
               <div className={styles.logoIconGroup}>
-                <span className={styles.logoBadge}>Rica</span>
-                <img src="/src/assets/images/icon-cropped.svg" alt="Rica Logo" className={styles.logoIcon} />
+                <img src="/src/assets/images/transparentlogo2.2.svg" alt="Rica Logo" className={styles.logoIcon} />
               </div>
               <div className={styles.logoText}>
                 <span className={styles.logoName}>RICA</span>
@@ -282,8 +281,7 @@ const Footer = () => {
           <div className={styles.footerGrid}>
             <div className={styles.footerBrand}>
               <div className={styles.footerBrandHeader}>
-                <TreePine className={styles.footerBrandIcon} />
-                <span className={styles.footerBrandName}>Rica</span>
+                <img src="/src/assets/images/transparentlogo2.3.svg" alt="Rica Logo" className={styles.footerBrandIcon} />
               </div>
               <p className={styles.footerBrandDescription}>
                 An eco-focused deconstruction company recycling lumber and building materials through a worker-owned cooperative model.

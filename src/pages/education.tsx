@@ -82,7 +82,7 @@ function benefitBulletClass(color: PillarColor) {
 
 const principles = [
   {
-    icon: Vote,
+    icon: Users,
     title: "Democratic Governance",
     body: "One member, one vote ensures that every employee-owner has equal say in business decisions, regardless of their position or financial investment. This creates a truly democratic workplace where power is distributed rather than concentrated.",
     color: "accent" as PrincipleColor,
