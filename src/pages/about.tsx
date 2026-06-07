@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Leaf, Users, Hammer, Scale, Eye, TrafficCone } from "lucide-react";
 import styles from "./about.module.scss";
+import aboutHero from "../assets/images/about-hero.png";
+import foundersImg from "../assets/images/founders.jpg";
 
 export const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -28,7 +30,7 @@ export default function About() {
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
           <img
-            src="/src/assets/images/about-hero.png"
+            src={aboutHero}
             alt="Rica founders with reclaimed lumber"
             className={styles.heroImage}
             onError={(e) => {
@@ -95,7 +97,7 @@ export default function About() {
             </div>
             <motion.div variants={fadeInUp} className={styles.storyImageWrapperFirst}>
               <img
-                src="/src/assets/images/founders.jpg"
+                src={foundersImg}
                 alt="Reclaimed wood planks in a workshop"
                 className={styles.storyImage}
                 onError={(e) => {
