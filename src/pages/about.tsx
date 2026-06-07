@@ -68,7 +68,7 @@ export default function About() {
             variants={staggerContainer}
             className={styles.aboutSection}
           >
-            <motion.h2 variants={fadeInUp} className={styles.sectionTitlePrimary}>
+            <motion.h2 variants={fadeInUp} className={styles.sectionTitleAccent}>
               About Us
             </motion.h2>
             <motion.p variants={fadeInUp}>
