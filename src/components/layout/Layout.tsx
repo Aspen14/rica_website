@@ -6,6 +6,8 @@ import { SiFacebook, SiInstagram } from "react-icons/si";
 import { cn } from "@/lib/utils";
 import { scrollToHash } from "@/lib/scroll";
 import styles from "./Layout.module.scss";
+import logoHeader from "@/assets/images/transparentlogo2.2.svg";
+import logoFooter from "@/assets/images/transparentlogo2.3.svg";
 
 type NavLink = {
   name: string;
@@ -160,7 +162,7 @@ const Header = () => {
           <div>
             <Link href="/" className={styles.logoLink}>
               <div className={styles.logoIconGroup}>
-                <img src="/src/assets/images/transparentlogo2.2.svg" alt="Rica Logo" className={styles.logoIcon} />
+                <img src={logoHeader} alt="Rica Logo" className={styles.logoIcon} />
               </div>
               <div className={styles.logoText}>
                 <span className={styles.logoName}>RICA</span>
@@ -281,7 +283,7 @@ const Footer = () => {
           <div className={styles.footerGrid}>
             <div className={styles.footerBrand}>
               <div className={styles.footerBrandHeader}>
-                <img src="/src/assets/images/transparentlogo2.3.svg" alt="Rica Logo" className={styles.footerBrandIcon} />
+                <img src={logoFooter} alt="Rica Logo" className={styles.footerBrandIcon} />
               </div>
               <p className={styles.footerBrandDescription}>
                 An eco-focused deconstruction company recycling lumber and building materials through a worker-owned cooperative model.
