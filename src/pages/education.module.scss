@@ -83,22 +83,47 @@
   gap: 3rem;
 }
 
-.deconstructionIntro {
+.introSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  @include body-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+}
+
+.differsGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-  align-items: start;
+  align-items: center;
 
   @include respond-to(lg) {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.sectionIntroText {
+.differsText {
   @include body-text;
 
   > * + * {
     margin-top: 1.5rem;
+  }
+
+  > .sectionSubheading:first-child {
+    margin-top: 0;
+  }
+}
+
+.differsImageWrapper {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  @include respond-to(lg) {
+    order: 2;
   }
 }
 
@@ -114,16 +139,6 @@
   }
 }
 
-.imageWrapper {
-  border-radius: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-  @include respond-to(lg) {
-    order: 2;
-  }
-}
-
 .imageWrapperLeft {
   border-radius: 0.5rem;
   overflow: hidden;
@@ -134,4 +149,222 @@
   width: 100%;
   height: 400px;
   object-fit: cover;
+}
+
+.timeline {
+  width: 100%;
+}
+
+.timelineHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.timelineEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: $color-accent;
+  margin-bottom: 0.75rem;
+}
+
+.timelineTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-text;
+
+  @include respond-to(md) {
+    font-size: 1.875rem;
+  }
+}
+
+.timelineTitleBar {
+  margin: 0.75rem auto 0;
+  height: 0.25rem;
+  width: 4rem;
+  border-radius: 9999px;
+  background-color: $color-accent;
+}
+
+.stepAccent {
+  background-color: $color-accent;
+}
+
+.stepPrimary {
+  background-color: $color-primary;
+}
+
+.labelAccent {
+  color: $color-accent;
+}
+
+.labelPrimary {
+  color: $color-primary;
+}
+
+// Desktop horizontal timeline
+.timelineDesktop {
+  display: none;
+  position: relative;
+
+  @include respond-to(md) {
+    display: block;
+  }
+}
+
+.timelineConnector {
+  position: absolute;
+  top: 52px;
+  left: calc(12.5% + 1px);
+  right: calc(12.5% + 1px);
+  height: 2px;
+  background: linear-gradient(to right, $color-accent, $color-primary, $color-primary);
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.timelineStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.timelineStepIcon {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  height: 104px;
+  width: 104px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 4px solid $color-white;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  margin-bottom: 1.25rem;
+}
+
+.timelineStepIconSvg {
+  height: 2.25rem;
+  width: 2.25rem;
+  color: $color-white;
+}
+
+.timelineStepBadge {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  display: flex;
+  height: 1.75rem;
+  width: 1.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: $color-white;
+  background-color: $color-text;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.timelineStepTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.5rem;
+  line-height: 1.375;
+}
+
+.timelineStepBody {
+  font-size: 0.80rem;
+  color: rgba($color-text, 0.8);
+  font-weight: 300;
+  line-height: 1.625;
+}
+
+// Mobile vertical timeline
+.timelineMobile {
+  display: block;
+  position: relative;
+  padding-left: 2.5rem;
+
+  @include respond-to(md) {
+    display: none;
+  }
+}
+
+.timelineVerticalLine {
+  position: absolute;
+  left: 19px;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: linear-gradient(to bottom, $color-accent, $color-primary, $color-primary);
+}
+
+.timelineMobileList {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.timelineMobileStep {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  position: relative;
+}
+
+.timelineMobileDot {
+  position: absolute;
+  left: 0;
+  display: flex;
+  height: 2.5rem;
+  width: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 2px solid $color-white;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  flex-shrink: 0;
+}
+
+.timelineMobileDotSvg {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: $color-white;
+}
+
+.timelineMobileContent {
+  padding-top: 0.25rem;
+}
+
+.timelineMobileLabel {
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.timelineMobileTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $color-text;
+  margin-bottom: 0.25rem;
+}
+
+.timelineMobileBody {
+  font-size: 0.875rem;
+  color: rgba($color-text, 0.8);
+  font-weight: 300;
+  line-height: 1.625;
 }
