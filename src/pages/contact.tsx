@@ -36,16 +36,8 @@ export default function Contact() {
                 <h3 className={styles.sectionLabel}>Phone Directory</h3>
                 <ul className={styles.phoneList}>
                   <li className={styles.phoneItem}>
-                    <span>Main Desk</span>
-                    <a href="tel:5551002000" className={styles.phoneLink}>(555) 100-2000</a>
-                  </li>
-                  <li className={styles.phoneItem}>
                     <span>Office</span>
-                    <a href="tel:5551002001" className={styles.phoneLink}>(555) 100-2001</a>
-                  </li>
-                  <li className={styles.phoneItem}>
-                    <span>Mobile/Site</span>
-                    <a href="tel:5551002002" className={styles.phoneLink}>(555) 100-2002</a>
+                    <a href="tel:8478280970" className={styles.phoneLink}>(847) 828-0970</a>
                   </li>
                 </ul>
               </div>
@@ -54,8 +46,8 @@ export default function Contact() {
                 <h3 className={styles.sectionLabelWithIcon}>
                   <Mail className={styles.sectionLabelIcon} /> Email
                 </h3>
-                <a href="mailto:info@ricarecycling.com" className={styles.emailLink}>
-                  info@ricarecycling.com
+                <a href="mailto:ricalumber@gmail.com" className={styles.emailLink}>
+                  ricalumber@gmail.com
                 </a>
               </div>
             </div>
@@ -75,7 +67,7 @@ export default function Contact() {
 
               <div className={styles.socialLinks}>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/marketplace/profile/61584062416894"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.socialLink}
@@ -84,7 +76,7 @@ export default function Contact() {
                   <SiFacebook className={styles.socialIcon} />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/ricalumber/"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.socialLink}

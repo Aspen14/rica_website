@@ -22,7 +22,7 @@ const MODAL_CONTENT: Record<NonNullable<ModalKey>, { title: string; body: React.
         <h4 className={styles.modalContentHeading}>Data Security</h4>
         <p>We implement reasonable security measures to protect your information from unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
         <h4 className={styles.modalContentHeading}>Contact Us</h4>
-        <p>If you have questions about this Privacy Policy, please contact us at info@ricarecycling.com.</p>
+        <p>If you have questions about this Privacy Policy, please contact us at ricalumber@gmail.com.</p>
       </div>
     ),
   },
@@ -41,7 +41,7 @@ const MODAL_CONTENT: Record<NonNullable<ModalKey>, { title: string; body: React.
         <h4 className={styles.modalContentHeading}>Changes to Terms</h4>
         <p>We reserve the right to update these Terms of Service at any time. Continued use of the site after changes constitutes your acceptance of the new terms.</p>
         <h4 className={styles.modalContentHeading}>Contact Us</h4>
-        <p>Questions about these terms? Contact us at info@ricarecycling.com.</p>
+        <p>Questions about these terms? Contact us at ricalumber@gmail.com.</p>
       </div>
     ),
   },
@@ -196,12 +196,10 @@ const Footer = () => {
             <div className={styles.footerColumn}>
               <h3 className={styles.footerColumnTitle}>Contact Us</h3>
               <div className={styles.footerContactList}>
-                <a href="mailto:info@ricarecycling.com" className={styles.footerEmailLink}>
-                  info@ricarecycling.com
+                <a href="mailto:ricalumber@gmail.com" className={styles.footerEmailLink}>
+                  ricalumber@gmail.com
                 </a>
-                <span>Main: (555) 100-2000</span>
-                <span>Office: (555) 100-2001</span>
-                <span>Mobile: (555) 100-2002</span>
+                <span>Office: (847) 828-0970</span>
               </div>
             </div>
 
@@ -212,7 +210,7 @@ const Footer = () => {
               </p>
               <div className={styles.footerSocialLinks}>
                 <a
-                  href="https://facebook.com"
+                  href="https://www.facebook.com/marketplace/profile/61584062416894"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.footerSocialLink}
@@ -221,7 +219,7 @@ const Footer = () => {
                   <SiFacebook className={styles.footerSocialIcon} />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/ricalumber/"
                   target="_blank"
                   rel="noreferrer"
                   className={styles.footerSocialLink}
