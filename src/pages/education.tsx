@@ -15,6 +15,8 @@ import {
 } from "lucide-react";
 import { fadeInUp, staggerContainer } from "./about";
 import lumberCoImg from "../assets/images/lumber_co.jpg";
+import narrowImg from "../assets/images/narrow.jpeg";
+import narrowImg2 from "../assets/images/narrow2.jpeg";
 import styles from "./education.module.scss";
 
 type StepColor = "accent" | "primary";
@@ -397,22 +399,48 @@ export default function Education() {
           variants={staggerContainer}
           className={styles.cooperativeSection}
         >
+          <motion.h2
+            variants={fadeInUp}
+            className={styles.cooperativeTitleBox}
+          >
+            Worker-Owned Cooperatives: Building a Better Business Model
+          </motion.h2>
+
           <motion.section
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className={styles.introSection}
+            className={styles.cooperativeIntroGrid}
           >
-            <motion.h2 variants={fadeInUp} className={styles.sectionTitleAccent}>
-              What is a Worker-Owned Cooperative?
-            </motion.h2>
-            <motion.p variants={fadeInUp}>
-              A cooperative is a business that is owned and democratically controlled by its employees. Unlike traditional corporations where ownership is concentrated among shareholders who may not be involved in daily operations, cooperatives place ownership directly in the hands of the people who do the work. Each employee becomes an owner with both a financial stake in the company and equal voting rights in major company decisions.
-            </motion.p>
-            <motion.p variants={fadeInUp}>
-              This fundamental difference creates a business model where workers are not just cogs in a machine, but partners in enterprise. Employees collectively own and govern their workplace, aligning their interests with the long-term success and sustainability of the organization.
-            </motion.p>
+            <div className={styles.cooperativeIntroText}>
+              <motion.h2 variants={fadeInUp} className={styles.sectionTitleAccent}>
+                What is a Worker-Owned Cooperative?
+              </motion.h2>
+              <motion.p variants={fadeInUp}>
+                A cooperative is a business that is owned and democratically controlled by its employees. Unlike traditional corporations where ownership is concentrated among shareholders who may not be involved in daily operations, cooperatives place ownership directly in the hands of the people who do the work. Each employee becomes an owner with both a financial stake in the company and equal voting rights in major company decisions.
+              </motion.p>
+              <motion.p variants={fadeInUp}>
+                This fundamental difference creates a business model where workers are not just cogs in a machine, but partners in enterprise. Employees collectively own and govern their workplace, aligning their interests with the long-term success and sustainability of the organization.
+              </motion.p>
+            </div>
+
+            <div className={styles.cooperativeIntroImages}>
+              <motion.div variants={fadeInUp} className={styles.cooperativeImageWrapper}>
+                <img
+                  src={narrowImg}
+                  alt="Worker-owner at the Rica workshop"
+                  className={styles.cooperativeImage}
+                />
+              </motion.div>
+              <motion.div variants={fadeInUp} className={styles.cooperativeImageWrapper}>
+                <img
+                  src={narrowImg2}
+                  alt="Worker-owner at the Rica workshop"
+                  className={styles.cooperativeImage}
+                />
+              </motion.div>
+            </div>
           </motion.section>
 
           <CorePrinciples />

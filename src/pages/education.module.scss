@@ -1,5 +1,5 @@
-@use '../styles/variables' as *;
-@use '../styles/mixins' as *;
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
 
 .page {
   flex: 1;
@@ -54,6 +54,28 @@
   scroll-margin-top: 11rem;
 }
 
+.cooperativeTitleBox {
+      margin-top: 6.5rem;
+  padding: 1.25rem 1.5rem;
+  background-color: $color-text;
+  color: $color-white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  border-radius: 1.5rem;
+  border: 2px solid $color-text-gradient-end;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  @include respond-to(md) {
+    font-size: 1.2rem;
+    padding: 1.5rem 2rem;
+        margin-top: 7rem;
+  }
+}
+
 .introSection {
   display: grid;
   grid-template-columns: 1fr;
@@ -65,7 +87,8 @@
   }
 }
 
-.differsGrid {
+.differsGrid,
+.cooperativeIntroGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
@@ -74,6 +97,39 @@
   @include respond-to(lg) {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+.cooperativeIntroText {
+  @include body-text;
+
+  > * + * {
+    margin-top: 1.5rem;
+  }
+
+  > .sectionTitleAccent:first-child {
+    margin-top: 0;
+  }
+}
+
+.cooperativeIntroImages {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.cooperativeImageWrapper {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.cooperativeImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 2;
+  object-fit: cover;
 }
 
 .differsText {
@@ -91,7 +147,9 @@
 .differsImageWrapper {
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
 
   @include respond-to(lg) {
     order: 2;
@@ -252,7 +310,9 @@
 .benefitCard {
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .benefitHeader {
@@ -404,7 +464,9 @@
   justify-content: center;
   border-radius: 9999px;
   border: 4px solid $color-white;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
   margin-bottom: 1.25rem;
 }
 
@@ -428,7 +490,9 @@
   font-weight: 700;
   color: $color-white;
   background-color: $color-text;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
 }
 
 .timelineStepTitle {
@@ -440,7 +504,7 @@
 }
 
 .timelineStepBody {
-  font-size: 0.80rem;
+  font-size: 0.8rem;
   color: rgba($color-text, 0.8);
   font-weight: 300;
   line-height: 1.625;
@@ -492,7 +556,9 @@ $timeline-dot-size: 2.5rem;
   justify-content: center;
   border-radius: 9999px;
   border: 2px solid $color-white;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
   flex-shrink: 0;
 }
 
