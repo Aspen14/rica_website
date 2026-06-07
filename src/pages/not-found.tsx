@@ -11,10 +11,6 @@ export default function NotFound() {
             <AlertCircle className={styles.icon} />
             <h1 className={styles.title}>404 Page Not Found</h1>
           </div>
-
-          <p className={styles.message}>
-            Did you forget to add the page to the router?
-          </p>
         </CardContent>
       </Card>
     </div>

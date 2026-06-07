@@ -1,5 +1,5 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
 
 // Layout shell
 .layout {
@@ -22,7 +22,9 @@
   width: 100%;
   background-color: $color-text;
   color: $color-white;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .headerInner {
@@ -54,18 +56,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  top: 6px;
 }
 
 .logoIcon {
-  height: 2rem;
-  width: 2rem;
-  color: $color-primary;
+  height: 26px;
+  width: 112px;
+  position: relative;
+  bottom: 31px;
 }
 
 .logoBadge {
-  font-size: 10px;
-  font-weight: 700;
-  color: $color-accent;
+  font-family: "Stick No Bills", sans-serif;
+  font-size: 55px;
+  color: $color-primary;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

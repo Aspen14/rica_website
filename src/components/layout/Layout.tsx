@@ -114,8 +114,8 @@ const Header = () => {
           <div>
             <Link href="/" className={styles.logoLink}>
               <div className={styles.logoIconGroup}>
-                <TreePine className={styles.logoIcon} />
                 <span className={styles.logoBadge}>Rica</span>
+                <img src="/src/assets/images/icon-cropped.svg" alt="Rica Logo" className={styles.logoIcon} />
               </div>
               <div className={styles.logoText}>
                 <span className={styles.logoName}>Rica</span>

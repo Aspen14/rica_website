@@ -415,16 +415,20 @@ export default function Education() {
 
           <CorePrinciples />
 
-          <div className={styles.sectionTextFull}>
-            <BenefitsPillars />
-            <motion.p
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-80px" }}
-              variants={fadeInUp}
-            >
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className={styles.introSection}
+          >
+            <motion.p variants={fadeInUp}>
               Worker-owned cooperatives represent more than just a different way to organize a business—they offer a vision for a more democratic, equitable, and sustainable economy built on the principle that those who do the work should share in the rewards.
             </motion.p>
+          </motion.section>
+
+          <div className={styles.sectionTextFull}>
+            <BenefitsPillars />
           </div>
         </motion.section>
       </div>
