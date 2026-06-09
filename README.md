@@ -13,4 +13,4 @@ Designed to be lightweight, incredibly fast, and easy to maintain:
 
 *   **Frontend:** Modern, component-driven UI focused on high performance and clean design.
 *   **Styling:** Responsive, mobile-first layouts ensuring a seamless experience across all devices.
-*   **Hosting & Deployment:** Automatically built and hosted via a modern CI/CD pipeline for instant global delivery and high availability.
+*   **Hosting & Deployment:** Built, hosted, and monitored on site.
